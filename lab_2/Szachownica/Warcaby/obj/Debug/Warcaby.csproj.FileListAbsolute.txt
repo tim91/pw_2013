@@ -1,0 +1,7 @@
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\bin\Debug\Warcaby.dll
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\bin\Debug\Warcaby.pdb
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\obj\Debug\Warcaby.csprojResolveAssemblyReference.cache
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\obj\Debug\Warcaby.dll
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\obj\Debug\Warcaby.pdb
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\bin\Debug\Interfejsy.dll
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Warcaby\bin\Debug\Interfejsy.pdb

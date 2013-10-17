@@ -1,0 +1,9 @@
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\bin\Debug\Szachy.dll
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\bin\Debug\Szachy.pdb
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\obj\Debug\Szachy.csprojResolveAssemblyReference.cache
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\obj\Debug\Szachy.Properties.Resources.resources
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\obj\Debug\Szachy.csproj.GenerateResource.Cache
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\obj\Debug\Szachy.dll
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\obj\Debug\Szachy.pdb
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\bin\Debug\Interfejsy.dll
+C:\Users\inf101319\Desktop\pw-lab2\Szachownica\Szachy\bin\Debug\Interfejsy.pdb

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szachownica", "Szachownica\Szachownica.csproj", "{437645DE-1A5B-47FE-897D-8FD0D7AB6EBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Board", "Szachownica\Board.csproj", "{437645DE-1A5B-47FE-897D-8FD0D7AB6EBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szachy", "Szachy\Szachy.csproj", "{EF4808F5-C94F-4359-9D05-6767F4891977}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess", "Szachy\Chess.csproj", "{EF4808F5-C94F-4359-9D05-6767F4891977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warcaby", "Warcaby\Warcaby.csproj", "{57E137B5-EA70-4E10-A2F0-134BB3F761CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkers", "Warcaby\Checkers.csproj", "{57E137B5-EA70-4E10-A2F0-134BB3F761CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfejsy", "Interfejsy\Interfejsy.csproj", "{5A0146BD-1654-4589-9F59-A7993D83F96F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfejsy\Interfaces.csproj", "{5A0146BD-1654-4589-9F59-A7993D83F96F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

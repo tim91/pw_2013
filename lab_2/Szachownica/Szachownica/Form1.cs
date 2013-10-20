@@ -29,7 +29,7 @@ namespace Szachownica
                     this.gameComboBox.Items.Add(game);
             }
             
-            this.SetBounds(this.Left, this.Top, 200, 200);
+            this.SetBounds(this.Left, this.Top, 180, 180);
             
         }
 
@@ -48,7 +48,7 @@ namespace Szachownica
             panel.Controls.RemoveByKey("labelText");
             panel.Controls.RemoveByKey("gameComboBox");
 
-            this.SetBounds(this.Left, this.Top, 465, 490);
+            this.SetBounds(this.Left, this.Top, 415, 438);
 
             bool white = true;
             for (int y = 0; y < 8; y++)
@@ -59,14 +59,14 @@ namespace Szachownica
                     white = false;
                 for (int x = 0; x < 8; x++)
                 {
-                    Button b = new Button();
+                    BoardField b = new BoardField();
                     b.Name = y + "" + x;
                     b.Width = SIZE;
                     b.Height = SIZE;
                     b.Top = y * SIZE;
                     b.Left = x * SIZE;
-                    b.Margin = new Padding(0);
 
+                    b.Click += b_Click;
                     if (white)
                     {
                         b.BackColor = Color.LightBlue;
@@ -84,10 +84,101 @@ namespace Szachownica
             this.Refresh();
         }
 
+        private BoardField selectedField;
+
+        void b_Click(object sender, EventArgs e)
+        {
+            BoardField boardField = sender as BoardField;
+            if (selectedField != null )
+            {//przenosimy w to miejsce
+                //sprawdzam czy pole ktore chce przesunac jest sasiadem pola na ktore chce przeniesc
+                int x = -1;
+                int y = -1; ;
+                string type = null;
+                if (selectedField.isFieldFromList(boardField))
+                {
+                    
+                    if (boardField.pawn != null)
+                    {
+                        x = boardField.pawn.xPosition;
+                        y = boardField.pawn.yPosition;
+                        type = boardField.pawn.GetType().ToString().Split('.')[1];
+                    }
+                    else
+                    {
+                        x = boardField.Location.X/SIZE;
+                        y = boardField.Location.Y/SIZE;
+                    }
+
+                    
+                    if (this.selectedField.pawn.canMovePawn(x, y, type))
+                    {
+                        boardField.BackgroundImage = this.selectedField.BackgroundImage;
+                        boardField.pawn = this.selectedField.pawn;
+                        boardField.BackgroundImageLayout = this.selectedField.BackgroundImageLayout;
+                        this.selectedField.removeNeighbors();
+                        this.selectedField.pawn = null;
+
+                        boardField.pawn.xPosition = x;
+                        boardField.pawn.yPosition = y;
+                        boardField.removeNeighbors();
+                        addNeightbours(x, y);
+                        this.selectedField.removeNeighbors();
+                        this.selectedField.BackgroundImage = null;
+                        this.Refresh();
+                    }
+                    Console.WriteLine("w IF");
+                }
+
+                this.selectedField = null;
+            }
+            else
+            {//wciaskmy do przeniesienia jezeli jest tam pionek
+                
+                if( boardField.pawn != null)
+                {
+                    this.selectedField = boardField;
+                }
+            }
+
+            
+        }
+
+        private void addNeightbours(int x, int y)
+        {
+            Control[] c = this.Controls.Find("mainPanel", false);
+            Panel panel = c[0] as Panel;
+
+            Control[] control = panel.Controls.Find(y + "" + x, false);
+
+            BoardField bf = control[0] as BoardField;
+
+            Point [] points = new Point[2];
+
+            if (bf.pawn != null)
+            {
+                points = this.selected.generateNeightborPoints(bf.pawn.xPosition, bf.pawn.yPosition, bf.pawn.GetType().ToString().Split('.')[1]);
+
+                foreach (Point p in points)
+                {
+                    if (p != null)
+                    {
+                        Control[] cc = panel.Controls.Find(p.Y + "" + p.X, false);
+                        if (cc.Length > 0 && cc[0] != null)
+                        {
+                            bf.addNeighbor(cc[0] as BoardField);
+                        }
+                    }
+                }
+            }
+        }
+
+        private PawnDraftsMan selected = null;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            PawnDraftsMan selected = this.gameComboBox.SelectedItem as PawnDraftsMan;
-            if( selected != null)
+            this.selected = this.gameComboBox.SelectedItem as PawnDraftsMan;
+            if( this.selected != null)
             {
                 drawBoard();
 
@@ -98,30 +189,34 @@ namespace Szachownica
 
                 foreach (Pawn pawn in pawns)
                 {
-                    string name = pawn.yPosiition + "" + pawn.xPosiition;
+                    string name = pawn.yPosition + "" + pawn.xPosition;
                     Control[] b = panel.Controls.Find(name, true);
-                    b[0].BackgroundImage = pawn.image;
-                    b[0].BackgroundImageLayout = ImageLayout.Zoom;
+                    BoardField field = b[0] as BoardField;
+                    field.BackgroundImage = pawn.image;
+                    field.BackgroundImageLayout = ImageLayout.Zoom;
+                    field.pawn = pawn;
+                    //field.Click += b_Click;
+
+                    Point[] points = this.selected.generateNeightborPoints(pawn.xPosition, pawn.yPosition, pawn.GetType().ToString().Split('.')[1]);
+
+                    foreach (Point p in points)
+                    {
+                        if (p != null)
+                        {
+                            Control[] cc = panel.Controls.Find(p.Y + "" + p.X, false);
+                            if (cc.Length > 0 && cc[0] != null)
+                            {
+                                field.addNeighbor(cc[0] as BoardField);
+                            }
+                        }
+                    }
+                    
                 }
                
             }
             //else return,
             Console.WriteLine();
             
-        }
-
-        private static string REFLECTION_RESOURCE_PATH = "Szachownica.Resources.";
-
-        private Image getEmbeddedImage(string className)
-        {
-            
-            Assembly boardExe;
-            boardExe = System.Reflection.Assembly.GetExecutingAssembly();
-            //string[] resources = boardExe.GetManifestResourceNames();
-
-            System.IO.Stream file = boardExe.GetManifestResourceStream(REFLECTION_RESOURCE_PATH + className + ".png");
-            Image i = Image.FromStream(file);
-            return i;
         }
 
         private PawnDraftsMan [] loadDlls()

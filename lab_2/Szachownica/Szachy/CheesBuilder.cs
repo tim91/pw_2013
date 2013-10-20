@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfejsy;
+using System.Drawing;
 
 namespace Szachy
 {
@@ -37,17 +38,17 @@ namespace Szachy
                             //Rook
                             pawns[pawnIterator] = new BlackRookPawn(x, y);
                         }
-                        else if (y == 1 || y == 6)
+                        else if (x == 1 || x == 6)
                         {
                             //Knight
                             pawns[pawnIterator] = new BlackKnightPawn(x, y);
                         }
-                        else if (y == 2 || y == 5)
+                        else if (x == 2 || x == 5)
                         {
                             //Bishop
                             pawns[pawnIterator] = new BlackBishopPawn(x, y);
                         }
-                        else if (y == 3)
+                        else if (x == 3)
                         {
                             //Queen
                             pawns[pawnIterator] = new BlackQueenPawn(x, y);
@@ -78,17 +79,17 @@ namespace Szachy
                             //Rook
                             pawns[pawnIterator] = new WhiteRookPawn(x, y);
                         }
-                        else if (y == 1 || y == 6)
+                        else if (x == 1 || x == 6)
                         {
                             //Knight
                             pawns[pawnIterator] = new WhiteKnightPawn(x, y);
                         }
-                        else if (y == 2 || y == 5)
+                        else if (x == 2 || x == 5)
                         {
                             //Bishop
                             pawns[pawnIterator] = new WhiteBishopPawn(x, y);
                         }
-                        else if (y == 3)
+                        else if (x == 3)
                         {
                             //Queen
                             pawns[pawnIterator] = new WhiteQueenPawn(x, y);
@@ -109,6 +110,25 @@ namespace Szachy
             }
 
             return pawns;
+        }
+
+
+
+
+        public System.Drawing.Point[] generateNeightborPoints(int currX, int currY, string type)
+        {
+            Point[] points = new Point[5];
+
+            if (type.Equals("BlackPawn"))
+            {
+                points[0] = new Point(currX , currY + 1);
+            }
+            else if ( type.Equals("WhitePawn"))
+            {
+                points[0] = new Point(currX, currY - 1);
+            }
+
+            return points;
         }
     }
 }

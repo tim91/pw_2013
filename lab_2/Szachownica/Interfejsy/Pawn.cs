@@ -12,10 +12,10 @@ namespace Interfejsy
     {
         public Image image { get; set; }
 
-        public int xPosiition { get; set; }
-        public int yPosiition { get; set; }
+        public int xPosition { get; set; }
+        public int yPosition { get; set; }
 
-        public abstract void movePawn(int newXPosition, int newYPosition);
+        public abstract bool canMovePawn(int newXPosition, int newYPosition, string type);
         public abstract void removePawn();
 
         public void loadImage()

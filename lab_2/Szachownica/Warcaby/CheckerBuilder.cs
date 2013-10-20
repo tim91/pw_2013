@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfejsy;
+using System.Drawing;
 
 namespace Warcaby
 {
@@ -69,6 +70,25 @@ namespace Warcaby
             }
 
             return pawns;
+        }
+
+
+        public Point[] generateNeightborPoints(int currX, int currY, string type)
+        {
+            Point[] points = new Point[2];
+
+            if (type == "WhiteChecker")
+            {
+                points[0] = new Point(currX - 1, currY + 1);
+                points[1] = new Point(currX + 1, currY + 1);
+            }
+            else
+            {//BlackChecker
+                points[0] = new Point(currX - 1, currY - 1);
+                points[1] = new Point(currX + 1, currY - 1);
+            }
+            
+            return points;
         }
     }
 }

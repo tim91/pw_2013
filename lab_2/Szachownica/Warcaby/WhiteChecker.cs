@@ -13,14 +13,18 @@ namespace Warcaby
     {
         public WhiteChecker(int x, int y)
         {
-            this.xPosiition = x;
-            this.yPosiition = y;
+            this.xPosition = x;
+            this.yPosition = y;
             loadImage();
         }
 
-        public override void movePawn(int newXPosition, int newYPosition)
+        public override bool canMovePawn(int newXPosition, int newYPosition, string type)
         {
-            throw new NotImplementedException();
+            if (type == null || (type != null && type.Equals("BlackChecker")))
+            {//pole bez pionka lub pionek przeciwnika, no to idziemy
+                return true;
+            }
+            return false;
         }
 
         public override void removePawn()

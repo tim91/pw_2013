@@ -41,7 +41,7 @@
             this.labelText.AutoSize = true;
             this.labelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelText.Location = new System.Drawing.Point(14, 14);
+            this.labelText.Location = new System.Drawing.Point(40, 20);
             this.labelText.Name = "labelText";
             this.labelText.Size = new System.Drawing.Size(91, 13);
             this.labelText.TabIndex = 0;
@@ -51,7 +51,7 @@
             // gameComboBox
             // 
             this.gameComboBox.FormattingEnabled = true;
-            this.gameComboBox.Location = new System.Drawing.Point(12, 39);
+            this.gameComboBox.Location = new System.Drawing.Point(21, 53);
             this.gameComboBox.Name = "gameComboBox";
             this.gameComboBox.Size = new System.Drawing.Size(121, 21);
             this.gameComboBox.TabIndex = 1;
@@ -59,7 +59,7 @@
             // startButton
             // 
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(17, 80);
+            this.startButton.Location = new System.Drawing.Point(43, 96);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(75, 23);
             this.startButton.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(514, 334);
+            this.mainPanel.Size = new System.Drawing.Size(164, 141);
             this.mainPanel.TabIndex = 4;
             // 
             // Form1
@@ -85,8 +85,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(514, 334);
+            this.ClientSize = new System.Drawing.Size(164, 141);
             this.Controls.Add(this.mainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Board";

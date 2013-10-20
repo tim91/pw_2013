@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -86,9 +87,62 @@ namespace Szachownica
 
         private void button1_Click(object sender, EventArgs e)
         {
-            drawBoard();
+            loadDlls();
+            //drawBoard();
+            //getEmbeddedResource();
+        }
 
+        private static string REFLECTION_RESOURCE_PATH = "Szachownica.Resources.";
 
+        private Image getEmbeddedImage(string className)
+        {
+            
+            Assembly boardExe;
+            boardExe = System.Reflection.Assembly.GetExecutingAssembly();
+            //string[] resources = boardExe.GetManifestResourceNames();
+
+            System.IO.Stream file = boardExe.GetManifestResourceStream(REFLECTION_RESOURCE_PATH + className + ".png");
+            Image i = Image.FromStream(file);
+            return i;
+        }
+
+        private void loadDlls()
+        {
+            DirectoryInfo di = new DirectoryInfo(".");
+
+            foreach (FileInfo f in di.GetFiles("*.dll"))
+            {
+                Assembly a = Assembly.LoadFile(f.FullName);
+                Type[] types = a.GetExportedTypes();
+                Type[] tt = a.GetTypes();
+                foreach (Type t in types)
+                {
+                    object[] o = t.GetCustomAttributes(true);
+
+                    foreach (object oo in o)
+                    {
+                        Console.WriteLine(oo.ToString());
+                        this.gameComboBox.Controls.Add(new Control(oo.ToString()));
+                        /*
+                        if (oo.ToString() == "Core.Plugin")
+                        {
+                            Core.IPlug plugin = oo as Core.IPlug;
+                            if (oo != null)
+                            {
+                                plugin = (Core.IPlug)Activator.CreateInstance(t);
+                                Console.WriteLine("Found Plugin !");
+                                Console.WriteLine("Starting...");
+                                plugin.Start();
+                                Console.WriteLine("Displaing info");
+                                Core.PluginInfo pi = plugin.Info();
+                                Console.WriteLine(pi.ApplicationName + " " + pi.Version);
+                                Console.WriteLine("Ending...");
+                                plugin.End();
+                            }
+                        }*/
+                    }
+                }
+            }
         }
     }
 }

@@ -1,0 +1,3 @@
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Checkers.csprojResolveAssemblyReference.cache
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Warcaby.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Warcaby.pdb

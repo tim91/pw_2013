@@ -1,0 +1,9 @@
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\bin\Debug\Szachy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\bin\Debug\Szachy.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\bin\Debug\Interfejsy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\bin\Debug\Interfejsy.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\obj\Debug\Chess.csprojResolveAssemblyReference.cache
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\obj\Debug\Szachy.Properties.Resources.resources
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\obj\Debug\Chess.csproj.GenerateResource.Cache
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\obj\Debug\Szachy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachy\obj\Debug\Szachy.pdb

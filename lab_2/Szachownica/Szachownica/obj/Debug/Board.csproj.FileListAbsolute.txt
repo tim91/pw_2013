@@ -1,0 +1,11 @@
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\bin\Debug\Szachownica.exe.config
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\bin\Debug\Szachownica.exe
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\bin\Debug\Szachownica.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\bin\Debug\Interfejsy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\bin\Debug\Interfejsy.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\obj\Debug\Board.csprojResolveAssemblyReference.cache
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\obj\Debug\Szachownica.Properties.Resources.resources
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\obj\Debug\Board.csproj.GenerateResource.Cache
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\obj\Debug\Szachownica.exe
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\obj\Debug\Szachownica.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Szachownica\obj\Debug\Szachownica.Form1.resources

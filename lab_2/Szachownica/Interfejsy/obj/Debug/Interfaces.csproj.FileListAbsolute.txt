@@ -1,0 +1,5 @@
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Interfejsy\bin\Debug\Interfejsy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Interfejsy\bin\Debug\Interfejsy.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Interfejsy\obj\Debug\Interfejsy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Interfejsy\obj\Debug\Interfejsy.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Interfejsy\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache

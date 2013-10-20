@@ -11,9 +11,9 @@ namespace Warcaby
     {
         public CheckerBuilder() { }
 
-        public Pawn createPawn(int xPosition, int yPosition, Interfejsy.StaticVariables.pawnType pawnType)
+        public Pawn createPawn(int xPosition, int yPosition, Interfejsy.StaticVariables.PawnType pawnType)
         {
-            if (pawnType == StaticVariables.pawnType.CHECKER_WHITE)
+            if (pawnType == StaticVariables.PawnType.CHECKER_WHITE)
             {
                 return new WhiteChecker(xPosition, yPosition);
             }
@@ -27,6 +27,48 @@ namespace Warcaby
         public override string ToString()
         {
             return "Checkers";
+        }
+
+
+        public Pawn[] initialize()
+        {
+            Pawn[] pawns = new Pawn[24];
+
+            int pawnIterator = 0;
+
+            for (int y = 0; y < 3; y++)
+            {
+                for (int x = 0; x < 4; x++)
+                {
+                    if ((y % 2) == 0)
+                    {
+                        pawns[pawnIterator] = new WhiteChecker(x * 2 + 1, y);
+                    }
+                    else
+                    {
+                        pawns[pawnIterator] = new WhiteChecker(x * 2, y);
+                    }
+                    pawnIterator++;
+                }
+            }
+
+            for (int y = 5; y < 8; y++)
+            {
+                for (int x = 0; x < 4; x++)
+                {
+                    if ((y % 2) == 0)
+                    {
+                        pawns[pawnIterator] = new BlackChecker(x * 2 + 1, y);
+                    }
+                    else
+                    {
+                        pawns[pawnIterator] = new BlackChecker(x * 2, y);
+                    }
+                    pawnIterator++;
+                }
+            }
+
+            return pawns;
         }
     }
 }

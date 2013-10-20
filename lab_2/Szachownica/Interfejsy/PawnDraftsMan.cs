@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Interfejsy
 {
-    interface PawnDraftsMan
+    public interface PawnDraftsMan
     {
-        Pawn createPawn(int xPosition, int yPosition, Interfejsy.StaticVariables.pawnType pawnType);
+        Pawn createPawn(int xPosition, int yPosition, Interfejsy.StaticVariables.PawnType pawnType);
+
+        Pawn[] initialize();
     }
 }

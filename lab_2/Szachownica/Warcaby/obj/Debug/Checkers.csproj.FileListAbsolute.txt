@@ -1,3 +1,9 @@
 C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Checkers.csprojResolveAssemblyReference.cache
 C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Warcaby.dll
 C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Warcaby.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\bin\Debug\Warcaby.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\bin\Debug\Warcaby.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\bin\Debug\Interfejsy.dll
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\bin\Debug\Interfejsy.pdb
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Warcaby.Properties.Resources.resources
+C:\Users\Tomek\git\pw_2013\lab_2\Szachownica\Warcaby\obj\Debug\Checkers.csproj.GenerateResource.Cache

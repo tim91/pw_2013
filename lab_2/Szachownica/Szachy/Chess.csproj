@@ -40,24 +40,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackBishopPawn.cs" />
+    <Compile Include="BlackKingPawn.cs" />
+    <Compile Include="BlackKnightPawn.cs" />
+    <Compile Include="BlackPawn.cs" />
+    <Compile Include="BlackQueenPawn.cs" />
+    <Compile Include="BlackRookPawn.cs" />
     <Compile Include="CheesBuilder.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="ChessPawn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WhiteBishopPawn.cs" />
+    <Compile Include="WhiteKingPawn.cs" />
+    <Compile Include="WhiteKnightPawn.cs" />
+    <Compile Include="WhitePawn.cs" />
+    <Compile Include="WhiteQueenPawn.cs" />
+    <Compile Include="WhiteRookPawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Penguins.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Interfejsy\Interfaces.csproj">
@@ -67,6 +74,42 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackBishopPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackKingPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackKnightPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackQueenPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackRookPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WhiteBishopPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WhiteKingPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WhiteKnightPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WhitePawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WhiteQueenPawn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WhiteRookPawn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

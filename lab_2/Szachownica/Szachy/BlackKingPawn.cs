@@ -1,20 +1,19 @@
-﻿using System;
+﻿using Interfejsy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Interfejsy;
-using System.Drawing;
 
-namespace Warcaby
+namespace Szachy
 {
-    class CheckerPawn : Pawn
+    class BlackKingPawn : Pawn
     {
-        public CheckerPawn(int x, int y)
+        public BlackKingPawn(int x, int y)
         {
             this.xPosiition = x;
             this.yPosiition = y;
-
+            loadImage();
         }
 
         public override void movePawn(int newXPosition, int newYPosition)

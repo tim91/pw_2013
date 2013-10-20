@@ -8,6 +8,6 @@ namespace Interfejsy
 {
     public abstract class StaticVariables
     {
-        public enum pawnType {CHECKER_WHITE, CHECKER_BLACK};
+        public enum PawnType {CHECKER_WHITE, CHECKER_BLACK};
     }
 }

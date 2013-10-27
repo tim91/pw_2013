@@ -3,3 +3,8 @@ C:\Users\inf101319\Desktop\lab3\ClassLibrary\ClassLibrary\bin\Debug\ClassLibrary
 C:\Users\inf101319\Desktop\lab3\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.csprojResolveAssemblyReference.cache
 C:\Users\inf101319\Desktop\lab3\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.dll
 C:\Users\inf101319\Desktop\lab3\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\ClassLibrary\bin\Debug\ClassLibrary.pdb

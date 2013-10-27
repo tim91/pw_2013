@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ListObserverArgs.cs" />
+    <Compile Include="ListObserverEnumerator.cs" />
     <Compile Include="ObservableList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

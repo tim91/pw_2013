@@ -10,28 +10,44 @@ namespace ClassLibrary
     {
         public delegate void ListObserver<T>(object sender, ListObserverArgs<T> observer);
         public event ListObserver<T> Added;
-        //public event ListObserver Deleted;
+        public event ListObserver<T> Deleted;
+        public event ListObserver<T> Moved;
 
         private List<T> list = new List<T>();
+
+        public List<T> getList()
+        {
+            return this.list;
+        }
 
         public void Add(T el)
         {
             this.list.Add(el);
-
             ListObserverArgs<T> loa = new ListObserverArgs<T>();
             loa.index = this.list.IndexOf(el);
             loa.value = el;
             Added(this, loa);
         }
 
+        public void Move(int from, int to)
+        {
+            T el = this.list.ElementAt(from);
+            this.list.RemoveAt(from);
+            this.list.Insert(to, el);
+            ListObserverArgs<T> loa = new ListObserverArgs<T>();
+            loa.index = to;
+            loa.value = el;
+            Moved(this, loa);
+        }
+
         public void Remove(T el)
-        {/*
+        {
             this.list.Remove(el);
 
             ListObserverArgs<T> loa = new ListObserverArgs<T>();
-            loa.index = this.list.IndexOf(el);
+            loa.index = -1;
             loa.value = el;
-            Deleted(this, */
+            Deleted(this, loa);
         }
 
         public T this[int i]
@@ -52,12 +68,12 @@ namespace ClassLibrary
     
         public System.Collections.Generic.IEnumerator<T> GetEnumerator()
         {
-            return list.GetEnumerator();
+            return new ListObserverEnumerator<T>(this);
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return list.GetEnumerator();
+            return new ListObserverEnumerator<T>(this);
         }
     }
 }

@@ -1,0 +1,7 @@
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\obj\Debug\Test Project.csprojResolveAssemblyReference.cache
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\bin\Debug\TestyJednostkowe.dll
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\bin\Debug\TestyJednostkowe.pdb
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\bin\Debug\ClassLibrary.dll
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\bin\Debug\ClassLibrary.pdb
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\obj\Debug\TestyJednostkowe.dll
+C:\Users\Tomek\git\pw_2013\lab_3\lab3\ClassLibrary\TestyJednostkowe\obj\Debug\TestyJednostkowe.pdb

@@ -9,9 +9,7 @@ namespace ClassLibrary
     public class ObservableList <T> : IEnumerable<T>
     {
         public delegate void ListObserver<T>(object sender, ListObserverArgs<T> observer);
-        public event ListObserver<T> Added;
-        public event ListObserver<T> Deleted;
-        public event ListObserver<T> Moved;
+        private event ListObserver<T> ListEvent; 
 
         private List<T> list = new List<T>();
 
@@ -26,7 +24,11 @@ namespace ClassLibrary
             ListObserverArgs<T> loa = new ListObserverArgs<T>();
             loa.index = this.list.IndexOf(el);
             loa.value = el;
-            Added(this, loa);
+            if (ListEvent != null)
+            {
+                ListEvent(this, loa);
+            }
+            
         }
 
         public void Move(int from, int to)
@@ -37,7 +39,10 @@ namespace ClassLibrary
             ListObserverArgs<T> loa = new ListObserverArgs<T>();
             loa.index = to;
             loa.value = el;
-            Moved(this, loa);
+            if (ListEvent != null)
+            {
+                ListEvent(this, loa);
+            }
         }
 
         public void Remove(T el)
@@ -47,19 +52,31 @@ namespace ClassLibrary
             ListObserverArgs<T> loa = new ListObserverArgs<T>();
             loa.index = -1;
             loa.value = el;
-            Deleted(this, loa);
+            if (ListEvent != null)
+            {
+                ListEvent(this, loa);
+            }
         }
 
         public T this[int i]
         {
            get
            {
+               if (this.list.Count <= i || i < 0)
+                   throw new IndexOutOfRangeException();
                return  this.list.ElementAt(i);
            }
         }
 
-        public static ObservableList<T> operator +(ObservableList<T> list, T obj)
-        {//???
+        public static ObservableList<T> operator +(ObservableList<T> list, ListObserver<T> obj)
+        {
+            list.ListEvent += obj;
+            return list;
+        }
+
+        public static ObservableList<T> operator -(ObservableList<T> list, ListObserver<T> obj)
+        {
+            list.ListEvent -= obj;
             return list;
         }
 

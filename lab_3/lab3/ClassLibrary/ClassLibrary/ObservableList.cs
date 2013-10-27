@@ -48,7 +48,6 @@ namespace ClassLibrary
         public void Remove(T el)
         {
             this.list.Remove(el);
-
             ListObserverArgs<T> loa = new ListObserverArgs<T>();
             loa.index = -1;
             loa.value = el;

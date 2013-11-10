@@ -12,20 +12,68 @@ namespace Terminal
         [ExecuteCommandAttribute()]
         public void execute()
         {
+            String command = "Wykonuje : grep";
+            if (minusV)
+                command += " -V";
+            if (minusR.Length > 0)
+                command += " " + minusR;
+            if (minusI.Length > 0)
+                command += " " + minusI;
+
+            command += " Nieobslugiwane :";
+            foreach (String s in otherProperties)
+            {
+                command += " " + s;
+            }
+            Console.WriteLine(command);
         }
 
+        private string minusR;
+        private bool minusV;
+        private string minusI;
+        
         [CommandOptionWithParameter("-r")]
-        public string minusR { set; get; }
+        public void setMinusR(String s)
+        {
+            this.minusR = s;
+        }
+        
 
-        //grep boo /etc/passwd
-        [CommandOptionWithParameter("oridinary")]
-        public string kwyWordAndFiles { set; get; }
+        //grep -V
+        [CommandOptionParameterless("-V")]
+        public void setMinusV(bool s)
+        {
+            this.minusV = s;
+        }
 
         //grep -i "boo" /etc/passwd
         [CommandOptionWithParameter("-i")]
-        public string minusI { set; get; }
+        public void setMinusI(String s)
+        {
+            this.minusI = s;
+        }
+
+        private List<String> otherProperties = new List<string>();
 
         [OtherCommandArgumentsAttribute]
-        public List<String> otherProperties { set; get; }
+        public void addOtherProperties(String s)
+        {
+            this.otherProperties.Add(s);
+        }
+
+        [ClearOtherProperties]
+        public void clearOtherProperties()
+        {
+            this.otherProperties.Clear();
+        }
+
+        [ClearFields]
+        public void clearFields()
+        {
+            this.minusR = "";
+            this.minusI = "";
+            this.minusV = false;
+        }
+
     }
 }

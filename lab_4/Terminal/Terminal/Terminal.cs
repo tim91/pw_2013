@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -19,12 +20,32 @@ namespace Terminal
             {
                 Object o;
                 commands.TryGetValue(s,out o);
-                Console.WriteLine("Key : " + s + " value : " + o.ToString());
+                Console.Write("Program : " + s + " parametry : ");
+                Type type = o.GetType();
+                MethodInfo[] mi = type.GetMethods();
+                foreach (MethodInfo m in mi)
+                {
+                    Attribute a = null;
+                    if ((a = m.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute))) != null)
+                    {
+                        String ct = (a as CommandOptionParameterlessAttribute).propertyName;
+                        Console.Write(ct + " | ");
+
+                    }
+                    if ((a = m.GetCustomAttribute(typeof(CommandOptionWithParameterAttribute))) != null)
+                    {
+                        String ct = (a as CommandOptionWithParameterAttribute).propertyName;
+                        Console.Write(ct + " | ");
+                    }
+                }
+                Console.WriteLine();
             }
         }
 
         public void Execute(String command)
         {
+            command = Regex.Replace(command, " +", " ");
+
             string[] parts = command.Split(' ');
 
             if (parts.Length == 0)
@@ -45,7 +66,7 @@ namespace Terminal
 
             clearFields(commandClass);
 
-            if (parts.Length > 1)
+            if (parts.Length > 1 && !parts[1].Equals(""))
             {
                 int l = parts.Length;
                 for (int idx = 1; idx < l; idx++)
@@ -54,16 +75,59 @@ namespace Terminal
                     if (e.ElementAt(0).Equals('-'))
                     {
                         MethodInfo mi = findMethod(commandClass, e);
-                        if (mi.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute)) != null)
+                        if (mi == null)
                         {
-                            //mi.Invoke(commandClass,
+                            MethodInfo m = getOtherFiledMethod(commandClass);
+                            if (m == null)
+                                return;
+                            //odkladamy na liscie nieobslugiwanych
+                            m.Invoke(commandClass, new object[] { e });
+                        }
+                        else if (mi.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute)) != null)
+                        {
+                            mi.Invoke(commandClass, new object[] { true });
+                        }
+                        else if (mi.GetCustomAttribute(typeof(CommandOptionWithParameterAttribute)) != null)
+                        {
+                            //pobieramy dalsza czesc
+                            String q = null;
+                            if (idx + 1 < l)
+                            {
+                                q = parts[idx + 1];
+                                if (!q.ElementAt(0).Equals('-'))
+                                {
+                                    e += " " + q;
+                                    idx++;
+                                }
+                            }
+                            
+                            mi.Invoke(commandClass, new object[] { e });
+                        }
+                    }
+                    else if (e.Length > 0)
+                    {
+                        MethodInfo mi = findMethod(commandClass, "");
+                        if (mi == null)
+                            return;
+                        else if (mi.GetCustomAttribute(typeof(CommandOptionWithParameterAttribute)) != null)
+                        {
+                            mi.Invoke(commandClass, new object[] { e });
                         }
                     }
                 }
             }
+            else
+            {
+                MethodInfo mi = findMethod(commandClass, "");
+                if (mi == null)
+                    return;
+                else if (mi.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute)) != null)
+                {
+                    mi.Invoke(commandClass, new object[] { true });
+                }
+            }
 
             MethodInfo executeMethod = getExecuteMethod(commandClass,typeof(ExecuteCommandAttribute));
-            
             executeMethod.Invoke(commandClass,new object[]{});
         }
 
@@ -74,10 +138,19 @@ namespace Terminal
             MethodInfo[] mi = type.GetMethods();
             foreach (MethodInfo m in mi)
             {
-                if (m.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute)) != null
-                    || m.GetCustomAttribute(typeof(CommandOptionWithParameterAttribute)) != null)
+                Attribute a = null;
+                if ( (a = m.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute))) != null)
                 {
-                    return m;
+                    String ct = (a as CommandOptionParameterlessAttribute).propertyName;
+                    if(ct.Equals(attributeArg))
+                        return m;
+
+                }
+                if( ( a = m.GetCustomAttribute(typeof(CommandOptionWithParameterAttribute))) != null)
+                {
+                    String ct = (a as CommandOptionWithParameterAttribute).propertyName;
+                    if (ct.Equals(attributeArg))
+                        return m;
                 }
             }
             return null;
@@ -89,19 +162,25 @@ namespace Terminal
             MethodInfo[] mi = type.GetMethods();
             foreach (MethodInfo m in mi)
             {
-                if (m.GetCustomAttribute(typeof(CommandOptionParameterlessAttribute)) != null)
+                if (m.GetCustomAttribute(typeof(ClearFields)) != null)
                 {
-                    m.Invoke(o, new object[] { false});
-                }
-                else if (m.GetCustomAttribute(typeof(CommandOptionWithParameterAttribute)) != null)
-                {
-                    m.Invoke(o, new object[] { "" });
-                }
-                else if (m.GetCustomAttribute(typeof(OtherCommandArgumentsAttribute)) != null)
-                {
-                    m.Invoke(o, new object[] { new List<String>() });
+                    m.Invoke(o, new object[] {});
                 }
             }
+        }
+
+        private MethodInfo getOtherFiledMethod(Object o)
+        {
+            Type type = o.GetType();
+            MethodInfo[] mi = type.GetMethods();
+            foreach (MethodInfo m in mi)
+            {
+                if (m.GetCustomAttribute(typeof(OtherCommandArgumentsAttribute)) != null)
+                {
+                    return m;
+                }
+            }
+            return null;
         }
 
         private MethodInfo getExecuteMethod(Object o, Type t)

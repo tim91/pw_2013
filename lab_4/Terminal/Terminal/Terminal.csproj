@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="CatCommand.cs" />
     <Compile Include="CdCommand.cs" />
+    <Compile Include="ClearFields.cs" />
+    <Compile Include="ClearOtherProperties.cs" />
     <Compile Include="CommandOptionParameterlessAttribute.cs" />
     <Compile Include="CommandOptionWithParameterAttribute.cs" />
     <Compile Include="CommendAttribute.cs" />

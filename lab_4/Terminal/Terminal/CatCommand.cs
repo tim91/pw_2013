@@ -13,19 +13,64 @@ namespace Terminal
         [ExecuteCommandAttribute()]
         public void execute()
         {
+            String command = "Wykonuje : cat";
+            if (minusB.Length > 0)
+                command += " " + minusB;
+            if (minusS.Length > 0)
+                command += " " + minusS;
+            if (minusN.Length > 0)
+                command += " " + minusN;
+
+            command += " Nieobslugiwane :";
+            foreach (String s in otherProperties)
+            {
+                command += " " + s;
+            }
+            Console.WriteLine(command);
         }
 
-        //cat file.txt
-        [CommandOptionWithParameter("")]
-        public string fileName { set; get; }
+        private string minusB;
+        private string minusS;
+        private string minusN;
+
+        [CommandOptionWithParameter("-b")]
+        public void setMinusB(string b)
+        {
+            this.minusB = b;
+        }
 
         [CommandOptionWithParameter("-s")]
-        public string minusS { set; get; }
+        public void setMinusS(string b)
+        {
+            this.minusS = b;
+        }
 
         [CommandOptionWithParameter("-n")]
-        public string minusN { set; get; }
+        public void setMinusN(string b)
+        {
+            this.minusN = b;
+        }
+
+        private List<String> otherProperties = new List<string>();
 
         [OtherCommandArgumentsAttribute]
-        public List<String> otherProperties { set; get; }
+        public void addOtherProperties(String s)
+        {
+            this.otherProperties.Add(s);
+        }
+
+        [ClearOtherProperties]
+        public void clearOtherProperties()
+        {
+            this.otherProperties.Clear();
+        }
+
+        [ClearFields]
+        public void clearFields()
+        {
+            this.minusS = "";
+            this.minusB = "";
+            this.minusN = "";
+        }
     }
 }

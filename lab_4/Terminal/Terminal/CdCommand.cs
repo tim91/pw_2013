@@ -13,20 +13,66 @@ namespace Terminal
         [ExecuteCommandAttribute()]
         public void execute()
         {
+            String command = "Wykonuje : cd";
+            if (parentDirectory)
+                command += " ..";
+            if (fileName.Length > 0)
+                command += " " + fileName;
+            if (getBack)
+                command += " -";
+
+            command += " Nieobslugiwane :";
+            foreach (String s in otherProperties)
+            {
+                command += " " + s;
+            }
+            Console.WriteLine(command);
         }
+
+        private string fileName;
+        private bool parentDirectory;
+        private bool getBack;
 
         //cd folder
         [CommandOptionWithParameter("")]
-        public string fileName { set; get; }
+        public void seFileName(string b)
+        {
+            this.fileName = b;
+        }
 
         [CommandOptionParameterless("..")]
-        public bool parentDirectory { set; get; }
+        public void setParentirectory(bool b)
+        {
+            this.parentDirectory = b;
+        }
 
         //cd -
         [CommandOptionParameterless("-")]
-        public bool getBack { set; get; }
+        public void setGetBack(bool b)
+        {
+            this.getBack = b;
+        }
+
+        private List<String> otherProperties = new List<string>();
 
         [OtherCommandArgumentsAttribute]
-        public List<String> otherProperties { set; get; }
+        public void addOtherProperties(String s)
+        {
+            this.otherProperties.Add(s);
+        }
+
+        [ClearOtherProperties]
+        public void clearOtherProperties()
+        {
+            this.otherProperties.Clear();
+        }
+
+        [ClearFields]
+        public void clearFields()
+        {
+            this.fileName = "";
+            this.parentDirectory = false;
+            this.getBack = false;
+        }
     }
 }

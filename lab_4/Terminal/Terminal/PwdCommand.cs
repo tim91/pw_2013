@@ -12,18 +12,64 @@ namespace Terminal
         [ExecuteCommandAttribute()]
         public void execute()
         {
+            String command = "Wykonuje : pwd";
+            if (minusP)
+                command += " -P";
+            if (minusL)
+                command += " -L";
+
+            command += " Nieobslugiwane :";
+            foreach(String s in otherProperties)
+            {
+                command+= " " +s;
+            }
+            Console.WriteLine(command);
         }
 
+       
+        private bool empty;
+        private bool minusP;
+        private bool minusL;
+
         [CommandOptionParameterless("")]
-        public bool empty { set; get; }
+        public void setEmpty(bool b)
+        {
+            this.empty = b;
+        }
 
         [CommandOptionParameterless("-P")]
-        public bool minusP { set; get; }
+        public void setMinusP(bool b)
+        {
+            this.minusP = b;
+        }
 
-        [CommandOptionWithParameter("-L")]
-        public bool minusL { set; get; }
+        [CommandOptionParameterless("-L")]
+        public void setMinusL(bool b)
+        {
+            this.minusL = b;
+        }
+        
+        private List<String> otherProperties = new List<string>();
 
         [OtherCommandArgumentsAttribute]
-        public List<String> otherProperties { set; get; }
+        public void addOtherProperties(String s)
+        {
+            this.otherProperties.Add(s);
+        }
+
+        [ClearOtherProperties]
+        public void clearOtherProperties()
+        {
+            this.otherProperties.Clear();
+        }
+
+        [ClearFields]
+        public void clearFields()
+        {
+            this.empty = false;
+            this.minusP = false;
+            this.minusL = false;
+        }
+
     }
 }

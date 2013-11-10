@@ -1,0 +1,6 @@
+C:\Users\inf101319\Desktop\lab4\Terminal\Terminal\bin\Debug\Terminal.exe.config
+C:\Users\inf101319\Desktop\lab4\Terminal\Terminal\bin\Debug\Terminal.exe
+C:\Users\inf101319\Desktop\lab4\Terminal\Terminal\bin\Debug\Terminal.pdb
+C:\Users\inf101319\Desktop\lab4\Terminal\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
+C:\Users\inf101319\Desktop\lab4\Terminal\Terminal\obj\Debug\Terminal.exe
+C:\Users\inf101319\Desktop\lab4\Terminal\Terminal\obj\Debug\Terminal.pdb

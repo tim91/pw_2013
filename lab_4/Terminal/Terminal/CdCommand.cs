@@ -14,5 +14,19 @@ namespace Terminal
         public void execute()
         {
         }
+
+        //cd folder
+        [CommandOptionWithParameter("")]
+        public string fileName { set; get; }
+
+        [CommandOptionParameterless("..")]
+        public bool parentDirectory { set; get; }
+
+        //cd -
+        [CommandOptionParameterless("-")]
+        public bool getBack { set; get; }
+
+        [OtherCommandArgumentsAttribute]
+        public List<String> otherProperties { set; get; }
     }
 }

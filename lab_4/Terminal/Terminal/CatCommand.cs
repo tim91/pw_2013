@@ -14,5 +14,18 @@ namespace Terminal
         public void execute()
         {
         }
+
+        //cat file.txt
+        [CommandOptionWithParameter("")]
+        public string fileName { set; get; }
+
+        [CommandOptionWithParameter("-s")]
+        public string minusS { set; get; }
+
+        [CommandOptionWithParameter("-n")]
+        public string minusN { set; get; }
+
+        [OtherCommandArgumentsAttribute]
+        public List<String> otherProperties { set; get; }
     }
 }

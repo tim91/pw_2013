@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Terminal
 {
-    class CommandOptionParameterlessAttribute : System.Attribute
+    class CommandOptionWithParameterAttribute : System.Attribute
     {
-        public CommandOptionParameterlessAttribute(string name)
+        public CommandOptionWithParameterAttribute(String s)
         {
-            this.propertyName = name;
+             this.propertyName = s;
         }
+
         public string propertyName { get; set; }
     }
 }

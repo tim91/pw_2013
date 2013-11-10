@@ -12,34 +12,21 @@ namespace Terminal
         private static Dictionary<String, Object> commands = new Dictionary<String, Object>();
         static void Main(string[] args)
         {
-            initialize();
+            Terminal terminal = new Terminal();
 
-            Console.Read();
-        }
-
-        private static void initialize()
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            Type[] classes = assembly.GetTypes();
-            foreach (Type class_ in classes)
+            while (true)
             {
-                Attribute a = class_.GetCustomAttribute(typeof(CommendAttribute));
+                Console.Write(">");
 
-                if (a != null)
-                {
-                    String ct = (a as CommendAttribute).getCommandType();
-                    //Console.WriteLine(class_.GetTypeInfo());
-                    Object o = Activator.CreateInstance(class_);
-                    commands.Add(ct, o);
-                }
+                String command = Console.ReadLine();
+
+                if (command.Length == 0)
+                    continue;
+
+                terminal.Execute(command);
+               
             }
-            /*
-            foreach (String s in commands.Keys)
-            {
-                Object o;
-                commands.TryGetValue(s, out o);
-                Console.WriteLine("Klucz : " + s + " wartosc : " + o.GetType().ToString());
-            }*/
         }
+
     }
 }

@@ -14,7 +14,18 @@ namespace Terminal
         {
         }
 
-        [CommandOptionParameterless("-v")]
-        bool abc;
+        [CommandOptionWithParameter("-r")]
+        public string minusR { set; get; }
+
+        //grep boo /etc/passwd
+        [CommandOptionWithParameter("oridinary")]
+        public string kwyWordAndFiles { set; get; }
+
+        //grep -i "boo" /etc/passwd
+        [CommandOptionWithParameter("-i")]
+        public string minusI { set; get; }
+
+        [OtherCommandArgumentsAttribute]
+        public List<String> otherProperties { set; get; }
     }
 }

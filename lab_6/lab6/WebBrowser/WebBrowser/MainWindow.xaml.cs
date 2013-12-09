@@ -24,5 +24,7 @@ namespace WebBrowser
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -2,15 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WebBrowser" x:Class="WebBrowser.MainWindow"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="492*"/>
-        </Grid.ColumnDefinitions>
-
-        <local:WPFWebBrowser HorizontalAlignment="Left" Height="256" Margin="5.717,24,0,0" VerticalAlignment="Top" Width="447" Grid.Column="1"/>
-        <WebBrowser x:Name="WebBrowserControl" x:FieldModifier="public" HorizontalAlignment="Left" Height="269" Margin="31.717,41,0,0" VerticalAlignment="Top" Width="450" Grid.Column="1"/>
-
+        Title="MainWindow" Height="457.701" Width="838.194">
+    <Grid Margin="0,0,27,24">
+        <local:WPFWebBrowser HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="312" Width="511"/>
     </Grid>
 </Window>
